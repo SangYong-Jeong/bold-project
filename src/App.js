@@ -9,7 +9,6 @@ import MainPage from './pages/MainPage';
 import AboutPage from './pages/AboutPage';
 import PortfolioPage from './pages/PortfolioPage';
 import ContactPage from './pages/ContactPage';
-import PortfolioItemPage from './pages/PortfolioItemPage';
 
 function App() {
   return (
@@ -20,7 +19,6 @@ function App() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/portfolio" element={<PortfolioPage />} />
         <Route path="/contact" element={<ContactPage />} />
-        <Route path="/portfolio/:id" element={<PortfolioItemPage />} />
       </Routes>
       <TopButtonCp />
       <FooterCp />
