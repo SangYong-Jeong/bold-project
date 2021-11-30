@@ -1,5 +1,6 @@
 export * from 'styled-components';
 export { default } from 'styled-components';
+export * from './styled-components';
 
 export const font = {
   kr: `'Noto Sans KR'`,

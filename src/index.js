@@ -4,6 +4,8 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 
+import './assets/css/all.min.css';
+import './assets/css/bootstrap.min.css';
 import './assets/css/base.css';
 
 ReactDOM.render(
