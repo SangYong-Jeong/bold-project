@@ -1,12 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import InstagramIcon from '@mui/icons-material/Instagram';
-import styled from '../../style';
+import styled, { font } from '../../style';
 import emotion from '@emotion/styled';
 
 import NaviPortFolioItem from './NaviPortFolioItem';
 
 const StyledWrapper = styled.div`
+  font-family: ${font.en}, ${font.serif};
   padding: 1em 1em 0 1em;
   display: flex;
   justify-content: center;

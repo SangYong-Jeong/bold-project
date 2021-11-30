@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from '../../style';
+import styled, { font } from '../../style';
 import FooterItemCp from './FooterItemCp';
 
 const StyledFooter = styled.div`
@@ -8,6 +8,7 @@ const StyledFooter = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
+  font-family: ${font.en}, ${font.serif};
 `;
 
 const FooterCp = () => {

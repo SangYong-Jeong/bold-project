@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from '../../style';
+import styled, { font } from '../../style';
 
 const StyledTopButton = styled.div`
   position: fixed;
@@ -13,6 +13,7 @@ const StyledTopButton = styled.div`
   bottom: 0;
   background-color: #1f2326;
   color: #fcfcfc;
+  font-family: ${font.en}, ${font.serif};
 `;
 
 const StyledTopButtonContent = styled.div`

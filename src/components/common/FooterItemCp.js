@@ -3,8 +3,8 @@ import styled from '../../style';
 
 const StyleFooterItem = styled.div`
   color: #d6f7ff;
-  font-size: 1.2em;
-  font-weight: bold;
+  font-size: 1.4em;
+  font-weight: 400;
 `;
 
 const FooterItemCp = ({ children }) => {

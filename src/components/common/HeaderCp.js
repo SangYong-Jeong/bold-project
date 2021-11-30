@@ -8,7 +8,7 @@ const StyledHeader = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: ${font.en}, ${font.kr}, ${font.serif};
+  font-family: ${font.kr}, ${font.serif};
   font-weight: 500;
   padding: 1em 2em;
 `;
