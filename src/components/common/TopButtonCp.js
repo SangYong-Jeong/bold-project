@@ -9,8 +9,8 @@ const StyledTopButton = styled.div`
   align-items: flex-start;
   width: 60px;
   height: 75px;
-  right: 200px;
-  bottom: 0;
+  right: 100px;
+  bottom: 100px;
   background-color: #1f2326;
   color: #fcfcfc;
   font-family: ${font.en}, ${font.serif};
