@@ -10,7 +10,7 @@ const StyledNaviWrapper = styled.nav`
 const NaviWrapCp = () => {
   return (
     <StyledNaviWrapper>
-      <NaviCp type="about" link="/" />
+      <NaviCp type="about" link="/about" />
       <NaviCp type="portfolio" link="/portfolio" />
       <NaviCp type="Contact" link="/contact" />
       <NaviCp type="instagram" link="/instagram" />

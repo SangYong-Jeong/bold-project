@@ -3,7 +3,7 @@ import styled, { font } from '../../style';
 
 const AboutTopWrapper = styled.div`
   text-align: center;
-  margin-bottom: 2.5em;
+  margin-bottom: 10em;
 `;
 
 const AboutLogo = styled.div`
