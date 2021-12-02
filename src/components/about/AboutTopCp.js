@@ -1,37 +1,28 @@
-import React from 'react';
-import styled, { font } from '../../style';
+import React from 'react'
+import styled, { font, Logo } from '../../style'
 
 const AboutTopWrapper = styled.div`
   text-align: center;
   margin-bottom: 10em;
-`;
-
-const AboutLogo = styled.div`
-  font-family: ${font.en};
-  font-size: 1.2em;
-  font-weight: 500;
-  letter-spacing: 0.2em;
-  color: #333;
-  margin-bottom: 2em;
-`;
+`
 
 const AboutTitle = styled.div`
   font-family: ${font.kr};
   font-size: 1.35em;
   font-weight: 500;
   margin-bottom: 1.25em;
-`;
+`
 
 const AboutContent = styled.div`
   font-family: ${font.kr};
   font-size: 1.125em;
   font-weight: 400;
-`;
+`
 
 const AboutTopCp = () => {
   return (
     <AboutTopWrapper>
-      <AboutLogo>ABOUT</AboutLogo>
+      <Logo lang={font.en}>ABOUT</Logo>
       <AboutTitle>
         <div>HOLYKOOS는 크리에이티브 디자인 솔루션을 통해</div>
         <div>감탄스럽고 놀라운(HOLY) 감동을 고객에 제공합니다.</div>
@@ -47,7 +38,7 @@ const AboutTopCp = () => {
         </div>
       </AboutContent>
     </AboutTopWrapper>
-  );
-};
+  )
+}
 
-export default AboutTopCp;
+export default AboutTopCp

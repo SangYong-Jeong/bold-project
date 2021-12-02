@@ -1,14 +1,14 @@
-export * from 'styled-components';
-export { default } from 'styled-components';
-export * from './styled-components';
+export * from 'styled-components'
+export { default } from 'styled-components'
+export * from './styled-components'
 
 export const font = {
   kr: `'Noto Sans KR'`,
   en: `'Jost'`,
   serif: 'sans-serif',
-};
+}
 
-export const color = {};
+export const color = {}
 
 export const size = {
   xxl: '1599px',
@@ -17,7 +17,7 @@ export const size = {
   md: '991px',
   sm: '767px',
   xs: '575px',
-};
+}
 
 export const media = {
   xl: ` (max-width: ${size.xl})`,
@@ -25,4 +25,4 @@ export const media = {
   md: ` (max-width: ${size.md})`,
   sm: ` (max-width: ${size.sm})`,
   xs: ` (max-width: ${size.xs})`,
-};
+}

@@ -1,5 +1,5 @@
-import React from 'react';
-import styled, { font } from '../../style';
+import React from 'react'
+import styled, { font } from '../../style'
 
 const StyledAboutContentItemWrapper = styled.div`
   display: flex;
@@ -21,7 +21,7 @@ const StyledAboutContentItemWrapper = styled.div`
     font-family: ${font.kr}, sans-serif;
     color: #333;
     font-weight: 300;
-    line-height: 0.25;
+    line-height: 1.75;
     margin-bottom: 2.5em;
   }
   .content-en {
@@ -29,9 +29,9 @@ const StyledAboutContentItemWrapper = styled.div`
     font-family: ${font.en}, sans-serif;
     color: #333;
     font-weight: 300;
-    line-height: 0.5;
+    line-height: 1.75;
   }
-`;
+`
 
 const AboutContentItemCp = () => {
   return (
@@ -40,20 +40,17 @@ const AboutContentItemCp = () => {
         Trendy visual communication in various categories
       </div>
       <div className="content-kr">
-        브랜딩, 패키지디자인, 그래픽디자인, 편집디자인,
-        <hr /> 일러스트 등 다양한 카테고리에서 트렌디한 비주얼 커뮤니케이션
-        <hr />
-        으로
-        <hr /> 고객 맞춤형 솔루션을 제안합니다.
+        브랜딩, 패키지디자인, 그래픽디자인, 편집디자인, <br /> 일러스트 등
+        다양한 카테고리에서 트렌디한 비주얼 커뮤니케이션 <br /> 으로 <br /> 고객
+        맞춤형 솔루션을 제안합니다.
       </div>
       <div className="content-en">
-        We propose customized solutions
-        <hr /> through trendy visual communication in various categories
-        <hr /> such as branding, package design, graphic design, editorial
-        design, and illustration.
+        We propose customized solutions <br /> through trendy visual
+        communication in various categories <br /> such as branding, package
+        design, graphic design, editorial design, and illustration.
       </div>
     </StyledAboutContentItemWrapper>
-  );
-};
+  )
+}
 
-export default AboutContentItemCp;
+export default AboutContentItemCp
