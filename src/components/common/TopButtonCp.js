@@ -2,6 +2,7 @@ import React from 'react';
 import styled, { font } from '../../style';
 
 const StyledTopButton = styled.div`
+  cursor: pointer;
   position: fixed;
   display: flex;
   flex-direction: column;
@@ -12,8 +13,13 @@ const StyledTopButton = styled.div`
   right: 100px;
   bottom: 100px;
   background-color: #1f2326;
+  opacity: 0.6;
   color: #fcfcfc;
   font-family: ${font.en}, ${font.serif};
+  transition: all 0.5s;
+  &:hover {
+    opacity: 1;
+  }
 `;
 
 const StyledTopButtonContent = styled.div`
