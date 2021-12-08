@@ -1,6 +1,8 @@
 import styled, { css } from 'styled-components';
 
 export const PageWrapper = styled.div`
+  width: 80%;
+  margin: auto;
   padding: 2em 3em;
 `;
 

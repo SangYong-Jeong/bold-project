@@ -16,6 +16,10 @@ import PortfolioIllustrationPage from './pages/Portfolio/PortfolioIllustrationPa
 import PortfolioPackagePage from './pages/Portfolio/PortfolioPackagePage';
 import PortfolioItemPage from './pages/Portfolio/PortfolioItemPage';
 
+import RegisterPage from './pages/RegisterPage';
+import PfRegitserPage from './pages/PfRegitserPage';
+import LoginPage from './pages/LoginPage';
+
 function App() {
   return (
     <>
@@ -36,6 +40,9 @@ function App() {
         />
         <Route path="/portfolio/character/1" element={<PortfolioItemPage />} />
         <Route path="/contact" element={<ContactPage />} />
+        <Route path="/user/register" element={<RegisterPage />} />
+        <Route path="/portfolio/register" element={<PfRegitserPage />} />
+        <Route path="/user/login" element={<LoginPage />} />
       </Routes>
       <TopButtonCp />
       <FooterCp />
