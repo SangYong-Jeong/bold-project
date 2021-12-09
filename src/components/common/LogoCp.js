@@ -1,7 +1,7 @@
-import React from 'react'
-import styled, { css } from '../../style'
-import { Link } from 'react-router-dom'
-import logo from '../../assets/img/bold-logo.png'
+import React from 'react';
+import styled, { css } from '../../style';
+import { Link } from 'react-router-dom';
+import logo from '../../assets/img/bold-logo.png';
 
 const StyledLogoWrap = styled.div`
   ${(props) =>
@@ -17,19 +17,19 @@ const StyledLogoWrap = styled.div`
         `}
 
   display: flex;
-  align-items: flex-end;
-`
+  align-items: center;
+`;
 
 const StyledLogoImg = styled.img`
   width: 100%;
-  max-width: 70px;
-`
+  max-width: 40px;
+`;
 
 const StyledName = styled.div`
   width: 100%;
-  margin-left: 2em;
+  margin-left: 1.25em;
   font-size: 1.5em;
-`
+`;
 
 const LogoCp = ({ width }) => {
   return (
@@ -39,7 +39,7 @@ const LogoCp = ({ width }) => {
       </Link>
       <StyledName>정상용</StyledName>
     </StyledLogoWrap>
-  )
-}
+  );
+};
 
-export default LogoCp
+export default LogoCp;

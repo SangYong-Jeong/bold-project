@@ -15,7 +15,7 @@ const Title = styled.h2`
   padding: 0.625em 0;
 `;
 
-const Wrap = styled.div`
+const Form = styled.form`
   background-color: ${color.white};
   padding: 2em;
 `;
@@ -49,11 +49,11 @@ const ButtonWrap = styled.div`
   justify-content: center;
 `;
 
-const LoginCp = () => {
+const RegisterCp = () => {
   return (
     <Wrapper>
-      <Title>관리자 로그인</Title>
-      <Wrap>
+      <Title>회원 가입</Title>
+      <Form action="">
         <Table>
           <tbody>
             <tr>
@@ -75,11 +75,11 @@ const LoginCp = () => {
           </tbody>
         </Table>
         <ButtonWrap>
-          <button className="btn btn-success">로그인</button>
+          <button className="btn btn-primary">회원가입</button>
         </ButtonWrap>
-      </Wrap>
+      </Form>
     </Wrapper>
   );
 };
 
-export default LoginCp;
+export default RegisterCp;

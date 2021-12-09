@@ -1,5 +1,5 @@
 import React from 'react';
-import styled, { font } from '../../style';
+import styled, { font, color } from '../../style';
 
 import NaviWrapCp from './NaviWrapCp';
 import LogoCp from './LogoCp';
@@ -10,7 +10,9 @@ const StyledHeader = styled.header`
   align-items: center;
   font-family: ${font.kr}, ${font.serif};
   font-weight: 500;
-  padding: 1em 2em;
+  padding: 0 2em;
+  background-color: ${color.sky};
+  color: #777;
 `;
 
 const HeaderCp = () => {

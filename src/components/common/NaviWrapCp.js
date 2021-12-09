@@ -13,7 +13,8 @@ const NaviWrapCp = () => {
       <NaviCp type="about" link="/about" />
       <NaviCp type="portfolio" link="/portfolio" />
       <NaviCp type="Contact" link="/contact" />
-      <NaviCp type="instagram" link="/instagram" />
+      <NaviCp type="Login" link="/user/login" />
+      <NaviCp type="instagram" link="//instagram.com" />
     </StyledNaviWrapper>
   );
 };

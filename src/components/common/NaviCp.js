@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import styled, { font } from '../../style';
@@ -8,7 +8,6 @@ import NaviPortFolioItem from './NaviPortFolioItem';
 
 const StyledWrapper = styled.div`
   font-family: ${font.en}, ${font.serif};
-  padding: 1em 1em 0 1em;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,11 +17,14 @@ const StyledWrapper = styled.div`
 
 const StyledLink = styled(Link)`
   display: flex;
+  padding: 0.35em 1em 0.45em 1em;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   transition: all 0.5s;
   &:hover {
     opacity: 0.5;
+    color: inherit;
+    text-decoration: none;
   }
 `;
 
@@ -35,12 +37,27 @@ const StyledIcon = emotion(InstagramIcon)`
 `;
 
 const NaviCp = ({ type, link }) => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  const onMouseEnter = useCallback(() => {
+    setIsVisible(true);
+  }, []);
+
+  const onMouseLeave = useCallback(() => {
+    setIsVisible(false);
+  }, []);
+
   return (
-    <StyledWrapper type={type}>
+    <StyledWrapper
+      type={type}
+      pf={isVisible}
+      onMouseEnter={type === 'portfolio' ? onMouseEnter : undefined}
+      onMouseLeave={type === 'portfolio' ? onMouseLeave : undefined}
+    >
       <StyledLink to={link}>
         {type === 'instagram' ? <StyledIcon /> : type}
       </StyledLink>
-      {type === 'portfolio' && <NaviPortFolioItem />}
+      {isVisible && <NaviPortFolioItem />}
     </StyledWrapper>
   );
 };
