@@ -7,6 +7,7 @@ const Wrapper = styled(PageWrapper)`
   width: 100%;
   background-color: rgba(225, 242, 247, 0.7);
   height: calc(100vh - 144px);
+  display: flex;
 `;
 
 const LoginPage = () => {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, useLocation } from 'react-router-dom';
 
 import HeaderCp from './components/common/HeaderCp';
 import FooterCp from './components/common/FooterCp';
@@ -21,6 +21,10 @@ import PfRegitserPage from './pages/PfRegitserPage';
 import LoginPage from './pages/LoginPage';
 
 function App() {
+  const { pathname } = useLocation();
+  const isVisible = pathname.includes('register');
+  const isVisible2 = pathname.includes('user');
+
   return (
     <>
       <HeaderCp />
@@ -44,7 +48,7 @@ function App() {
         <Route path="/portfolio/register" element={<PfRegitserPage />} />
         <Route path="/user/login" element={<LoginPage />} />
       </Routes>
-      <TopButtonCp />
+      {!isVisible && !isVisible2 ? <TopButtonCp /> : undefined}
       <FooterCp />
     </>
   );
