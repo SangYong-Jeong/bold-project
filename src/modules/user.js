@@ -9,13 +9,15 @@ export const logout = createAction(LOGOUT);
 export const register = createAction(REGISTER);
 
 const initialState = {
-  id: '',
+  userid: '',
+  isLogIn: false,
 };
 
 const user = handleActions(
   {
-    [LOGIN]: (state, action) => ({ id: state.id }),
-    [LOGOUT]: (state, action) => ({ id: state.id }),
+    [LOGIN]: (state, action) => ({ isLogin: true, userid: action.payload }),
+    [REGISTER]: (state, action) => ({ isLogin: true, userid: action.payload }),
+    [LOGOUT]: (state, action) => ({ isLogin: false, userid: '' }),
   },
   initialState
 );

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import styled, { color, font } from '../../style';
 
 const Wrapper = styled.div`
@@ -50,6 +50,9 @@ const ButtonWrap = styled.div`
 `;
 
 const LoginCp = () => {
+  // dispatch 할 부분
+  const onClick = useEffect(async () => {}, []);
+
   return (
     <Wrapper>
       <Title>관리자 로그인</Title>
@@ -75,7 +78,9 @@ const LoginCp = () => {
           </tbody>
         </Table>
         <ButtonWrap>
-          <button className="btn btn-success">로그인</button>
+          <button className="btn btn-dark" onClick={onClick}>
+            로그인
+          </button>
         </ButtonWrap>
       </Wrap>
     </Wrapper>
