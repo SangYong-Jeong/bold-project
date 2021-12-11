@@ -32,4 +32,5 @@
 
 onClick을 dispatch로 바꾸는게 괜찮을듯
 
-redux 한 번 쭉 복습하고 리덕스 붙여보기
+redux 한 번 쭉 복습하고 리덕스 붙여보기 -> 공부 완료 이제 redux 붙여서 로그인 하
+면 userid 및 isLogin data 생성되게 하기 + Loading 추가
