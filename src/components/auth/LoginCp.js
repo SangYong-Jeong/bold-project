@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
+
 import styled, { color, font } from '../../style';
 
 const Wrapper = styled.div`
@@ -49,10 +50,7 @@ const ButtonWrap = styled.div`
   justify-content: center;
 `;
 
-const LoginCp = () => {
-  // dispatch 할 부분
-  const onClick = useEffect(async () => {}, []);
-
+const LoginCp = ({ onClick, onChangeId, onChangePw, userid, password }) => {
   return (
     <Wrapper>
       <Title>관리자 로그인</Title>
@@ -62,7 +60,13 @@ const LoginCp = () => {
             <tr>
               <TdTitle>아이디</TdTitle>
               <TdContent>
-                <input type="text" name="userid" className="form-control" />
+                <input
+                  type="text"
+                  name="userid"
+                  className="form-control"
+                  value={userid}
+                  onChange={onChangeId}
+                />
               </TdContent>
             </tr>
             <tr>
@@ -72,13 +76,18 @@ const LoginCp = () => {
                   type="password"
                   name="password"
                   className="form-control"
+                  value={password}
+                  onChange={onChangePw}
                 />
               </TdContent>
             </tr>
           </tbody>
         </Table>
         <ButtonWrap>
-          <button className="btn btn-dark" onClick={onClick}>
+          <button
+            className="btn btn-dark"
+            onClick={() => onClick(userid, password)}
+          >
             로그인
           </button>
         </ButtonWrap>
@@ -87,4 +96,4 @@ const LoginCp = () => {
   );
 };
 
-export default LoginCp;
+export default React.memo(LoginCp);

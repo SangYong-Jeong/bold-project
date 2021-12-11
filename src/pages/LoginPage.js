@@ -1,8 +1,7 @@
 import React from 'react';
 import styled, { PageWrapper, color } from '../style';
 
-import LoginCp from '../components/auth/LoginCp';
-
+import LoginContainerCp from '../containers/LoginContainerCp';
 const Wrapper = styled(PageWrapper)`
   width: 100%;
   background-color: rgba(225, 242, 247, 0.7);
@@ -13,7 +12,7 @@ const Wrapper = styled(PageWrapper)`
 const LoginPage = () => {
   return (
     <Wrapper>
-      <LoginCp />
+      <LoginContainerCp />
     </Wrapper>
   );
 };
