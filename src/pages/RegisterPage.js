@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { PageWrapper } from '../style';
 
-import RegisterCp from '../components/auth/RegisterCp';
+import RegisterContainerCp from '../containers/RegisterContainerCp';
 
 const Wrapper = styled(PageWrapper)`
   width: 100%;
@@ -13,7 +13,7 @@ const Wrapper = styled(PageWrapper)`
 const RegisterPage = () => {
   return (
     <Wrapper>
-      <RegisterCp></RegisterCp>
+      <RegisterContainerCp />
     </Wrapper>
   );
 };

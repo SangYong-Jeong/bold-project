@@ -1,4 +1,5 @@
 import React from 'react';
+
 import styled, { color, font } from '../../style';
 
 const Wrapper = styled.div`
@@ -15,7 +16,7 @@ const Title = styled.h2`
   padding: 0.625em 0;
 `;
 
-const Form = styled.form`
+const Wrap = styled.form`
   background-color: ${color.white};
   padding: 2em;
 `;
@@ -49,17 +50,23 @@ const ButtonWrap = styled.div`
   justify-content: center;
 `;
 
-const RegisterCp = () => {
+const ReisterCp = ({ onClick, onChangeId, onChangePw, userid, password }) => {
   return (
     <Wrapper>
       <Title>회원 가입</Title>
-      <Form action="">
+      <Wrap onSubmit={(e) => e.preventDefault()}>
         <Table>
           <tbody>
             <tr>
               <TdTitle>아이디</TdTitle>
               <TdContent>
-                <input type="text" name="userid" className="form-control" />
+                <input
+                  type="text"
+                  name="userid"
+                  className="form-control"
+                  value={userid}
+                  onChange={onChangeId}
+                />
               </TdContent>
             </tr>
             <tr>
@@ -69,17 +76,24 @@ const RegisterCp = () => {
                   type="password"
                   name="password"
                   className="form-control"
+                  value={password}
+                  onChange={onChangePw}
                 />
               </TdContent>
             </tr>
           </tbody>
         </Table>
         <ButtonWrap>
-          <button className="btn btn-primary">회원가입</button>
+          <button
+            className="btn btn-dark"
+            onClick={() => onClick(userid, password)}
+          >
+            회원가입
+          </button>
         </ButtonWrap>
-      </Form>
+      </Wrap>
     </Wrapper>
   );
 };
 
-export default RegisterCp;
+export default React.memo(ReisterCp);

@@ -10,8 +10,8 @@ const initialState = {};
 
 const loading = handleActions(
   {
-    [START_LOADING]: (state, { type }) => ({ ...state, [type]: true }),
-    [FINISH_LOADING]: (state, { type }) => ({ ...state, [type]: false }),
+    [START_LOADING]: (state, { payload }) => ({ ...state, [payload]: true }),
+    [FINISH_LOADING]: (state, { payload }) => ({ ...state, [payload]: false }),
   },
   initialState
 );

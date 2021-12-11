@@ -24,7 +24,7 @@ export const loginAsync = (userid, password) => async (dispatch) => {
 };
 
 export const logoutAsync = () => async (dispatch) => {
-  dispatch(startLoading(LOGIN));
+  dispatch(startLoading(LOGOUT));
   try {
     const response = await api.postLogout();
     if (response.status === 204) {
@@ -35,7 +35,21 @@ export const logoutAsync = () => async (dispatch) => {
   } catch (e) {
     throw e;
   }
-  dispatch(finishLoading(LOGIN));
+  dispatch(finishLoading(LOGOUT));
+};
+
+export const registerAsync = (userid, password) => async (dispatch) => {
+  dispatch(startLoading(REGISTER));
+  try {
+    const response = await api.postRegister(userid, password);
+    dispatch({
+      type: REGISTER,
+      payload: response.data.userid,
+    });
+  } catch (e) {
+    throw e;
+  }
+  dispatch(finishLoading(REGISTER));
 };
 
 const initialState = {
@@ -50,7 +64,10 @@ const user = handleActions(
       isLogin: true,
       userid: action.payload,
     }),
-    [REGISTER]: (state, action) => ({ isLogin: true, userid: action.payload }),
+    [REGISTER]: (state, action) => ({
+      ...state,
+      userid: action.payload,
+    }),
     [LOGOUT]: (state, action) => ({ isLogin: false, userid: '' }),
   },
   initialState
