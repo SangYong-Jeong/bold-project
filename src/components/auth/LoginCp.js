@@ -16,7 +16,7 @@ const Title = styled.h2`
   padding: 0.625em 0;
 `;
 
-const Wrap = styled.div`
+const Wrap = styled.form`
   background-color: ${color.white};
   padding: 2em;
 `;
@@ -54,7 +54,7 @@ const LoginCp = ({ onClick, onChangeId, onChangePw, userid, password }) => {
   return (
     <Wrapper>
       <Title>관리자 로그인</Title>
-      <Wrap>
+      <Wrap onSubmit={(e) => e.preventDefault()}>
         <Table>
           <tbody>
             <tr>

@@ -7,13 +7,20 @@ const StyledNaviWrapper = styled.nav`
   align-items: flex-end;
 `;
 
-const NaviWrapCp = () => {
+const NaviWrapCp = ({ isLogin, onLogout }) => {
   return (
     <StyledNaviWrapper>
       <NaviCp type="about" link="/about" />
       <NaviCp type="portfolio" link="/portfolio" />
       <NaviCp type="Contact" link="/contact" />
-      <NaviCp type="Login" link="/user/login" />
+      {isLogin === false ? (
+        <NaviCp type="Login" link="/user/login" />
+      ) : (
+        <>
+          <NaviCp type="Logout" onClick={onLogout} />
+          <NaviCp type="Register" link="/user/register" />
+        </>
+      )}
       <NaviCp type="instagram" link="//instagram.com" />
     </StyledNaviWrapper>
   );

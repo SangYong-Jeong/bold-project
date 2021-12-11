@@ -36,7 +36,21 @@ const StyledIcon = emotion(InstagramIcon)`
   }
 `;
 
-const NaviCp = ({ type, link }) => {
+const Logout = styled.a`
+  cursor: pointer;
+  display: flex;
+  padding: 0.35em 1em 0.45em 1em;
+  justify-content: center;
+  align-items: flex-end;
+  transition: all 0.5s;
+  &:hover {
+    opacity: 0.5;
+    color: inherit;
+    text-decoration: none;
+  }
+`;
+
+const NaviCp = ({ type, link = '/', onClick }) => {
   const [isVisible, setIsVisible] = useState(false);
 
   const onMouseEnter = useCallback(() => {
@@ -54,9 +68,14 @@ const NaviCp = ({ type, link }) => {
       onMouseEnter={type === 'portfolio' ? onMouseEnter : undefined}
       onMouseLeave={type === 'portfolio' ? onMouseLeave : undefined}
     >
-      <StyledLink to={link}>
-        {type === 'instagram' ? <StyledIcon /> : type}
-      </StyledLink>
+      {type === 'Logout' ? (
+        <Logout onClick={onClick}>{type}</Logout>
+      ) : (
+        <StyledLink to={link}>
+          {type === 'instagram' ? <StyledIcon /> : type}
+        </StyledLink>
+      )}
+
       {isVisible && <NaviPortFolioItem />}
     </StyledWrapper>
   );

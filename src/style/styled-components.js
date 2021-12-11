@@ -2,7 +2,7 @@ import styled, { css, keyframes } from 'styled-components';
 
 export const PageWrapper = styled.div`
   width: 80%;
-  margin: auto;
+  margin: 3em auto 0 auto;
   padding: 2em 3em;
 `;
 
