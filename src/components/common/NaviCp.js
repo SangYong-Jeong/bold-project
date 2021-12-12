@@ -5,6 +5,7 @@ import styled, { font } from '../../style';
 import emotion from '@emotion/styled';
 
 import NaviPortFolioItem from './NaviPortFolioItem';
+import NaviUserCp from './NaviUserCp';
 
 const StyledWrapper = styled.div`
   font-family: ${font.en}, ${font.serif};
@@ -12,7 +13,10 @@ const StyledWrapper = styled.div`
   justify-content: center;
   align-items: center;
   font-size: 1.5em;
-  position: ${(props) => (props.type === 'portfolio' ? 'relative' : 'static')};
+  position: ${(props) =>
+    props.type === 'portfolio' || props.type === 'User'
+      ? 'relative'
+      : 'static'};
 `;
 
 const StyledLink = styled(Link)`
@@ -61,22 +65,33 @@ const NaviCp = ({ type, link = '/', onClick }) => {
     setIsVisible(false);
   }, []);
 
+  const goPage = (e) => {
+    if (type === 'User') {
+      e.preventDefault();
+    }
+  };
+
   return (
     <StyledWrapper
       type={type}
       pf={isVisible}
-      onMouseEnter={type === 'portfolio' ? onMouseEnter : undefined}
-      onMouseLeave={type === 'portfolio' ? onMouseLeave : undefined}
+      onMouseEnter={
+        type === 'portfolio' || type === 'User' ? onMouseEnter : undefined
+      }
+      onMouseLeave={
+        type === 'portfolio' || type === 'User' ? onMouseLeave : undefined
+      }
     >
       {type === 'Logout' ? (
         <Logout onClick={onClick}>{type}</Logout>
       ) : (
-        <StyledLink to={link}>
+        <StyledLink to={link} onClick={goPage}>
           {type === 'instagram' ? <StyledIcon /> : type}
         </StyledLink>
       )}
 
-      {isVisible && <NaviPortFolioItem />}
+      {type === 'portfolio' && isVisible && <NaviPortFolioItem />}
+      {type === 'User' && isVisible && <NaviUserCp />}
     </StyledWrapper>
   );
 };

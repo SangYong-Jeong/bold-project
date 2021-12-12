@@ -5,12 +5,22 @@ export default function createUserThunk(type, request) {
     dispatch(startLoading(type));
     try {
       const response =
-        type !== 'user/LOGOUT'
+        type === 'user/LOGOUT'
           ? await request()
           : await request(userid, password);
-      dispatch({
-        type,
-      });
-    } catch (e) {}
+      if (response.status === 204) {
+        dispatch({
+          type,
+        });
+      } else {
+        dispatch({
+          type,
+          payload: response.data.userid,
+        });
+      }
+    } catch (e) {
+      throw e;
+    }
+    dispatch(finishLoading(type));
   };
 }

@@ -1,56 +1,17 @@
-import { createAction, handleActions } from 'redux-actions';
+import { handleActions } from 'redux-actions';
 import * as api from '../lib/api';
 import { startLoading, finishLoading } from './loading';
+import createUserThunk from '../lib/createUserThunk';
 
 const LOGIN = 'user/LOGIN';
 const LOGOUT = 'user/LOGOUT';
 const REGISTER = 'user/REGISTER';
 
-export const logout = createAction(LOGOUT);
-export const register = createAction(REGISTER);
+export const loginAsync = createUserThunk(LOGIN, api.postLogin);
 
-export const loginAsync = (userid, password) => async (dispatch) => {
-  dispatch(startLoading(LOGIN));
-  try {
-    const response = await api.postLogin(userid, password);
-    dispatch({
-      type: LOGIN,
-      payload: response.data.userid,
-    });
-  } catch (e) {
-    throw e;
-  }
-  dispatch(finishLoading(LOGIN));
-};
+export const logoutAsync = createUserThunk(LOGOUT, api.postLogout);
 
-export const logoutAsync = () => async (dispatch) => {
-  dispatch(startLoading(LOGOUT));
-  try {
-    const response = await api.postLogout();
-    if (response.status === 204) {
-      dispatch({
-        type: LOGOUT,
-      });
-    }
-  } catch (e) {
-    throw e;
-  }
-  dispatch(finishLoading(LOGOUT));
-};
-
-export const registerAsync = (userid, password) => async (dispatch) => {
-  dispatch(startLoading(REGISTER));
-  try {
-    const response = await api.postRegister(userid, password);
-    dispatch({
-      type: REGISTER,
-      payload: response.data.userid,
-    });
-  } catch (e) {
-    throw e;
-  }
-  dispatch(finishLoading(REGISTER));
-};
+export const registerAsync = createUserThunk(REGISTER, api.postRegister);
 
 const initialState = {
   userid: '',

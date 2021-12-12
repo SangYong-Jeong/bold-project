@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from '../../style';
+import styled, { font } from '../../style';
 import NaviCp from './NaviCp';
 
 const StyledNaviWrapper = styled.nav`
@@ -16,10 +16,7 @@ const NaviWrapCp = ({ isLogin, onLogout }) => {
       {isLogin === false ? (
         <NaviCp type="Login" link="/user/login" />
       ) : (
-        <>
-          <NaviCp type="Logout" onClick={onLogout} />
-          <NaviCp type="Register" link="/user/register" />
-        </>
+        <NaviCp type="User" link="" />
       )}
       <NaviCp type="instagram" link="//instagram.com" />
     </StyledNaviWrapper>
