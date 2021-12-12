@@ -16,7 +16,10 @@ const NaviWrapCp = ({ isLogin, onLogout }) => {
       {isLogin === false ? (
         <NaviCp type="Login" link="/user/login" />
       ) : (
-        <NaviCp type="User" onClick={onLogout} />
+        <>
+          <NaviCp type="User" onClick={onLogout} />
+          <NaviCp type="Register" link="/portfolio/register" />
+        </>
       )}
       <NaviCp type="instagram" link="//instagram.com" />
     </StyledNaviWrapper>

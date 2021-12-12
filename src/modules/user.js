@@ -7,11 +7,11 @@ const LOGIN = 'user/LOGIN';
 const LOGOUT = 'user/LOGOUT';
 const REGISTER = 'user/REGISTER';
 
-export const loginAsync = createUserThunk(LOGIN, api.postLogin);
+export const loginAsync = createUserThunk(LOGIN, api.userLogin);
 
-export const logoutAsync = createUserThunk(LOGOUT, api.postLogout);
+export const logoutAsync = createUserThunk(LOGOUT, api.userLogout);
 
-export const registerAsync = createUserThunk(REGISTER, api.postRegister);
+export const registerAsync = createUserThunk(REGISTER, api.userRegister);
 
 const initialState = {
   userid: '',

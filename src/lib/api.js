@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-export const postLogin = (userid, password) =>
+// user
+export const userLogin = (userid, password) =>
   axios.post(
     'http://127.0.0.1:4000/api/user/login',
     {
@@ -10,7 +11,7 @@ export const postLogin = (userid, password) =>
     { withCredentials: true }
   );
 
-export const postLogout = () =>
+export const userLogout = () =>
   axios.post(
     'http://127.0.0.1:4000/api/user/logout',
     {},
@@ -19,9 +20,12 @@ export const postLogout = () =>
     }
   );
 
-export const postRegister = (userid, password) =>
+export const userRegister = (userid, password) =>
   axios.post(
     'http://127.0.0.1:4000/api/user/register',
     { userid, password },
     { withCredentials: true }
   );
+
+// post
+// export cont

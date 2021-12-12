@@ -3,21 +3,21 @@ import { createAction, handleActions } from 'redux-actions';
 import * as api from '../lib/api';
 import { startLoading, finishLoading } from './loading';
 
-const REGISTER = 'character/REGISTER';
-const LIST = 'character/LIST';
-const VIEW = 'character/VIEW';
+const REGISTER = 'main/REGISTER';
+const LIST = 'main/LIST';
+const VIEW = 'main/VIEW';
 
-export const characterRegister = createAction(REGISTER, (data) => data);
+export const mainRegister = createAction(REGISTER, (data) => data);
 
-export const characterList = createAction(LIST);
+export const mainList = createAction(LIST);
 
-export const characterView = createAction(VIEW);
+export const mainView = createAction(VIEW);
 
 const initialState = {
   lists: [],
 };
 
-const character = handleActions({
+const main = handleActions({
   [REGISTER]: (state, action) => ({
     ...state,
     lists: action.payload,
@@ -32,4 +32,4 @@ const character = handleActions({
   }),
 });
 
-export default character;
+export default main;
