@@ -28,14 +28,16 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const NaviUserCp = () => {
+const NaviUserCp = ({ onClick }) => {
   return (
     <StyleNaviPfWrapper>
       <StyleNaviPfItem>
-        <StyledLink to="/portfolio/package">Logout</StyledLink>
+        <StyledLink to="/" onClick={onClick}>
+          Logout
+        </StyledLink>
       </StyleNaviPfItem>
       <StyleNaviPfItem>
-        <StyledLink to="/portfolio/graphic">Register</StyledLink>
+        <StyledLink to="/user/register">Register</StyledLink>
       </StyleNaviPfItem>
     </StyleNaviPfWrapper>
   );

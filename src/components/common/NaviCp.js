@@ -82,16 +82,12 @@ const NaviCp = ({ type, link = '/', onClick }) => {
         type === 'portfolio' || type === 'User' ? onMouseLeave : undefined
       }
     >
-      {type === 'Logout' ? (
-        <Logout onClick={onClick}>{type}</Logout>
-      ) : (
-        <StyledLink to={link} onClick={goPage}>
-          {type === 'instagram' ? <StyledIcon /> : type}
-        </StyledLink>
-      )}
+      <StyledLink to={link} onClick={goPage}>
+        {type === 'instagram' ? <StyledIcon /> : type}
+      </StyledLink>
 
       {type === 'portfolio' && isVisible && <NaviPortFolioItem />}
-      {type === 'User' && isVisible && <NaviUserCp />}
+      {type === 'User' && isVisible && <NaviUserCp onClick={onClick} />}
     </StyledWrapper>
   );
 };
