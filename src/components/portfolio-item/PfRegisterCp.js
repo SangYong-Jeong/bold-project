@@ -68,7 +68,14 @@ const ButtonWrap = styled.div`
   justify-content: center;
 `;
 
-const PfRegisterCp = ({ onCate, onTitle, onContent, onFile, onSubmit }) => {
+const PfRegisterCp = ({
+  onCate,
+  onTitle,
+  onContent,
+  onFile,
+  onSubmit,
+  onRep,
+}) => {
   return (
     <Wrapper>
       <Title>포트폴리오 등록</Title>
@@ -125,16 +132,17 @@ const PfRegisterCp = ({ onCate, onTitle, onContent, onFile, onSubmit }) => {
                 <div className="form-inline ml-2 justify-content-start">
                   <input
                     type="file"
-                    name="imgs"
-                    className="form-control-file w-50"
+                    name="imgs1"
+                    className="form-control-file w-50 mr-4"
                     onChange={onFile}
                   />
                   <label>
-                    <Span type="rep">대표 이미지</Span>
+                    <Span type="rep">대표 포트폴리오</Span>
                     <input
                       className="ml-2 form-control flex-grow-1"
                       type="checkbox"
                       name="rep"
+                      onChange={onRep}
                     />
                   </label>
                 </div>
@@ -148,18 +156,10 @@ const PfRegisterCp = ({ onCate, onTitle, onContent, onFile, onSubmit }) => {
                 <div className="form-inline ml-2 justify-content-start">
                   <input
                     type="file"
-                    name="imgs"
+                    name="imgs2"
                     className="form-control-file w-50"
                     onChange={onFile}
                   />
-                  <label>
-                    <Span type="rep">대표 이미지</Span>
-                    <input
-                      className="ml-2 form-control flex-grow-1"
-                      type="checkbox"
-                      name="rep"
-                    />
-                  </label>
                 </div>
               </td>
             </tr>
@@ -171,18 +171,10 @@ const PfRegisterCp = ({ onCate, onTitle, onContent, onFile, onSubmit }) => {
                 <div className="form-inline ml-2 justify-content-start">
                   <input
                     type="file"
-                    name="imgs"
+                    name="imgs3"
                     className="form-control-file w-50"
                     onChange={onFile}
                   />
-                  <label>
-                    <Span type="rep">대표 이미지</Span>
-                    <input
-                      className="ml-2 form-control flex-grow-1"
-                      type="checkbox"
-                      name="rep"
-                    />
-                  </label>
                 </div>
               </td>
             </tr>

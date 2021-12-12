@@ -7,9 +7,10 @@ import * as api from '../lib/api';
 
 const PfRegisterContainerCp = () => {
   const [cate, setCate] = useState('character');
+  const [rep, setRep] = useState(false);
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
-  const [files, setFiles] = useState(null);
+  const [files, setFiles] = useState([]);
 
   const dispatch = useDispatch();
 
@@ -27,8 +28,23 @@ const PfRegisterContainerCp = () => {
     setContent(e.target.value);
   }, []);
 
-  const onFile = useCallback((e) => {
-    setFiles(e.target.files);
+  const onFile = useCallback(
+    (e) => {
+      if (e.target.files[0]) {
+        e.target.files[0].input = e.target.name;
+        console.log(files);
+        console.log([...files, e.target.files[0]]);
+        setFiles([...files, e.target.files[0]]);
+      } else {
+        const newFiles = files.filter((file) => file.input !== e.target.name);
+        setFiles(newFiles);
+      }
+    },
+    [files]
+  );
+
+  const onRep = useCallback((e) => {
+    setRep(e.target.checked);
   }, []);
 
   const onSubmit = useCallback(
@@ -37,8 +53,11 @@ const PfRegisterContainerCp = () => {
       const formData = new FormData();
       formData.append('title', title);
       formData.append('content', content);
-      for (let i = 0; i < files.length; i++) {
-        formData.append('imgs', files[i], files[i].name);
+      formData.append('rep', rep);
+      if (files.length) {
+        for (let i = 0; i < files.length; i++) {
+          formData.append('imgs', files[i]);
+        }
       }
       const config = {
         header: { 'content-type': 'multipart/form-data' },
@@ -47,7 +66,7 @@ const PfRegisterContainerCp = () => {
       dispatch(RegisterThunk(formData, config));
       // config 넣어주어야 한다. (axios 들어가야 함) -> 카테는 앞에 path로 뺄 예정임 -> 따로 api 짜고 필요- > 리덕스 모듈 짜고 이 쪽 다시 손보기
     },
-    [title, content, files, dispatch, RegisterThunk]
+    [title, content, files, rep, dispatch, RegisterThunk]
   );
 
   return (
@@ -57,6 +76,7 @@ const PfRegisterContainerCp = () => {
       onContent={onContent}
       onFile={onFile}
       onSubmit={onSubmit}
+      onRep={onRep}
     />
   );
 };
