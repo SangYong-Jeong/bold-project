@@ -28,4 +28,14 @@ export const userRegister = (userid, password) =>
   );
 
 // post
-// export cont
+export const character = (type, formData, config) =>
+  axios.post(`http://127.0.0.1:4000/api/design/${type}`, formData, config);
+
+export const graphic = (type, formData, config) =>
+  axios.post(`http://127.0.0.1:4000/api/design/${type}`, formData, config);
+
+export const illustration = (type, formData, config) =>
+  axios.post(`http://127.0.0.1:4000/api/design/${type}`, formData, config);
+
+export const packages = (type, formData, config) =>
+  axios.post(`http://127.0.0.1:4000/api/design/${type}`, formData, config);

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { PageWrapper } from '../style';
 
-import PfRegisterCp from '../components/portfolio-item/PfRegisterCp';
+import PfRegisterContainerCp from '../containers/PfRegisterContainerCp';
 
 const Wrapper = styled(PageWrapper)`
   width: 100%;
@@ -12,9 +12,9 @@ const Wrapper = styled(PageWrapper)`
 const PfRegitserPage = () => {
   return (
     <Wrapper>
-      <PfRegisterCp />
+      <PfRegisterContainerCp />
     </Wrapper>
   );
 };
 
-export default PfRegitserPage;
+export default React.memo(PfRegitserPage);

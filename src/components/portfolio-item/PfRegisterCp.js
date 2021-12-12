@@ -29,7 +29,7 @@ const Td = styled.td`
 `;
 
 const TdTitle = styled(Td)`
-  width: 20%;
+  width: 15%;
   font-size: 1.25em;
   text-align: center;
   font-family: ${font.kr};
@@ -38,13 +38,23 @@ const TdTitle = styled(Td)`
 `;
 
 const Span = styled.span`
-  color: red;
+  color: ${(props) => (props.type ? color.balck : color.red)};
+  font-family: ${font.kr};
+  font-weight: ${(props) => props.type && 'bold'};
 `;
 
 const TdContent = styled(Td)`
   width: 65%;
   padding: 0 0.5em;
   input {
+    border: 2px solid ${color.black};
+  }
+  select {
+    border: 2px solid ${color.black};
+    font-weight: 500;
+    font-size: 1.25em;
+  }
+  textarea {
     border: 2px solid ${color.black};
   }
 `;
@@ -58,51 +68,30 @@ const ButtonWrap = styled.div`
   justify-content: center;
 `;
 
-const PfRegisterCp = () => {
-  const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
-  const [files, setFiles] = useState(null);
-
-  const onTitle = useCallback((e) => {
-    setTitle(e.target.value);
-  }, []);
-
-  const onContent = useCallback((e) => {
-    setContent(e.target.value);
-  }, []);
-
-  const onFile = useCallback((e) => {
-    setFiles(e.target.files);
-  }, []);
-
-  const onSubmit = useCallback(
-    (e) => {
-      e.preventDefault();
-      const formData = new FormData();
-      formData.append('title', title);
-      formData.append('content', content);
-      for (let i = 0; i < files.length; i++) {
-        formData.append('imgs', files[i], files[i].name);
-      }
-      const config = {
-        headers: {
-          'content-type': 'multipart/form-data',
-        },
-      };
-      console.log(formData.get('title'));
-      console.log(formData.get('content'));
-      console.log(formData.getAll('imgs'));
-      // config 넣어주어야 한다. (axios 들어가야 함)
-    },
-    [title, content, files]
-  );
-
+const PfRegisterCp = ({ onCate, onTitle, onContent, onFile, onSubmit }) => {
   return (
     <Wrapper>
       <Title>포트폴리오 등록</Title>
       <Wrap onSubmit={onSubmit}>
         <Table>
           <tbody>
+            <tr>
+              <TdTitle>
+                분류 <Span>*</Span>
+              </TdTitle>
+              <TdContent>
+                <select
+                  name="option"
+                  className="form-control"
+                  onChange={onCate}
+                >
+                  <option value="character">character</option>
+                  <option value="graphic">graphic</option>
+                  <option value="illustration">illustration</option>
+                  <option value="package">package</option>
+                </select>
+              </TdContent>
+            </tr>
             <tr>
               <TdTitle>
                 제목 <Span>*</Span>
@@ -112,7 +101,6 @@ const PfRegisterCp = () => {
                   type="text"
                   name="title"
                   className="form-control"
-                  value={title}
                   onChange={onTitle}
                 />
               </TdContent>
@@ -126,7 +114,6 @@ const PfRegisterCp = () => {
                   name="content"
                   className="form-control"
                   onChange={onContent}
-                  value={content}
                 ></Textarea>
               </TdContent>
             </tr>
@@ -135,13 +122,68 @@ const PfRegisterCp = () => {
                 첨부파일 <Span>*</Span>
               </TdTitle>
               <td>
-                <input
-                  multiple
-                  type="file"
-                  name="imgs"
-                  className="form-control-file"
-                  onChange={onFile}
-                />
+                <div className="form-inline ml-2 justify-content-start">
+                  <input
+                    type="file"
+                    name="imgs"
+                    className="form-control-file w-50"
+                    onChange={onFile}
+                  />
+                  <label>
+                    <Span type="rep">대표 이미지</Span>
+                    <input
+                      className="ml-2 form-control flex-grow-1"
+                      type="checkbox"
+                      name="rep"
+                    />
+                  </label>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <TdTitle>
+                첨부파일 <Span>*</Span>
+              </TdTitle>
+              <td>
+                <div className="form-inline ml-2 justify-content-start">
+                  <input
+                    type="file"
+                    name="imgs"
+                    className="form-control-file w-50"
+                    onChange={onFile}
+                  />
+                  <label>
+                    <Span type="rep">대표 이미지</Span>
+                    <input
+                      className="ml-2 form-control flex-grow-1"
+                      type="checkbox"
+                      name="rep"
+                    />
+                  </label>
+                </div>
+              </td>
+            </tr>
+            <tr>
+              <TdTitle>
+                첨부파일 <Span>*</Span>
+              </TdTitle>
+              <td>
+                <div className="form-inline ml-2 justify-content-start">
+                  <input
+                    type="file"
+                    name="imgs"
+                    className="form-control-file w-50"
+                    onChange={onFile}
+                  />
+                  <label>
+                    <Span type="rep">대표 이미지</Span>
+                    <input
+                      className="ml-2 form-control flex-grow-1"
+                      type="checkbox"
+                      name="rep"
+                    />
+                  </label>
+                </div>
               </td>
             </tr>
           </tbody>

@@ -1,13 +1,8 @@
 import { CallToActionSharp } from '@mui/icons-material';
 import { createAction, handleActions } from 'redux-actions';
-import * as api from '../lib/api';
-import { startLoading, finishLoading } from './loading';
-
-const REGISTER = 'character/REGISTER';
+import * as api from '../../lib/api';
 const LIST = 'character/LIST';
 const VIEW = 'character/VIEW';
-
-export const characterRegister = createAction(REGISTER, (data) => data);
 
 export const characterList = createAction(LIST);
 
@@ -18,10 +13,6 @@ const initialState = {
 };
 
 const character = handleActions({
-  [REGISTER]: (state, action) => ({
-    ...state,
-    lists: action.payload,
-  }),
   [LIST]: (state, action) => ({
     ...state,
     lists: action.payload,
